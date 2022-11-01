@@ -34,10 +34,7 @@ describe('zodiacs routes', () => {
 describe('horoscope routes', () => {
   it('/horoscopes/:sign should return horoscope detail', async () => {
     const res = await request(app).get('/horoscopes/aries');
-    const aries = {
-      id: '2',
-      sign: 'aries',
-    };
-    expect(res.body).toEqual(aries);
+    const expected = [{ horoscope: 'You are going to be funny.' }];
+    expect(res.body).toEqual(expected);
   });
 });
