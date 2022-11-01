@@ -21,11 +21,22 @@ describe('zodiacs routes', () => {
 
   it('/zodiacs/:id should return zodiac detail', async () => {
     const res = await request(app).get('/zodiacs/1');
-    const aries = {
+    const aquarius = {
       id: '1',
       name: 'aquarius',
       dates: 'Jan 21 - Feb 19',
       symbol: 'Water Bearer',
+    };
+    expect(res.body).toEqual(aquarius);
+  });
+});
+
+describe('horoscope routes', () => {
+  it('/horoscopes/:sign should return horoscope detail', async () => {
+    const res = await request(app).get('/horoscopes/aries');
+    const aries = {
+      id: '2',
+      sign: 'aries',
     };
     expect(res.body).toEqual(aries);
   });
